@@ -3,7 +3,8 @@
 #include<stdlib.h>
 #define SIZE 5
 #define SEC 2
-void delay_sec(int sec);
+void delay_sec1(int sec);
+void delay_sec2(double sec);
 void count1_to(int x);
 void count2_to(int x);
 void count3_to(int x);
@@ -60,10 +61,22 @@ int main(void)
 
 	return 0;
 }
-void delay_sec(int sec)
+void delay_sec1(int  sec)//Chosing only in second as 2 sec 
 {
 	double a=time(NULL);
+	
 	while((time(NULL)-a)<sec)
+	{
+		printf("%c",'\0');
+	}
+}
+void delay_sec2(double sec)//Chosing even in nanosecond as 0.2 sec 
+{
+	double a=time(NULL), b;
+	
+	sec*=35;
+
+	for(b=time(NULL);(b-a)<sec;b+=0.000001)
 	{
 		printf("%c",'\0');
 	}
